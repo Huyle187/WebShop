@@ -45,10 +45,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -121,21 +135,81 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietDonHang.cs">
+      <DependentUpon>QuanLyShopFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonHang.cs">
+      <DependentUpon>QuanLyShopFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KhachHang.cs">
+      <DependentUpon>QuanLyShopFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiHang.cs">
+      <DependentUpon>QuanLyShopFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Metadata\LoaiHang.metadata.cs" />
+    <Compile Include="Models\Metadata\NhaCungCap.metada.cs" />
+    <Compile Include="Models\Metadata\SanPham.metadata.cs" />
+    <Compile Include="Models\NhaCungCap.cs">
+      <DependentUpon>QuanLyShopFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyShopFood.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyShopFood.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyShopFood.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyShopFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyShopFood.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyShopFood.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SanPham.cs">
+      <DependentUpon>QuanLyShopFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QuanLyShopFood.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\wwwroot\css\all.min.css" />
+    <Content Include="Areas\Admin\wwwroot\css\sb-admin-2.min.css" />
+    <Content Include="Areas\Admin\wwwroot\jquery\jquery.min.js" />
+    <Content Include="Areas\Admin\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Include="Areas\Admin\wwwroot\js\chart-area-demo.js" />
+    <Content Include="Areas\Admin\wwwroot\js\chart-pie-demo.js" />
+    <Content Include="Areas\Admin\wwwroot\js\Chart.min.js" />
+    <Content Include="Areas\Admin\wwwroot\js\jquery.easing.min.js" />
+    <Content Include="Areas\Admin\wwwroot\js\sb-admin-2.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\QuanLyShopFood.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuanLyShopFood.Context.cs</LastGenOutput>
+      <DependentUpon>QuanLyShopFood.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\QuanLyShopFood.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyShopFood.edmx</DependentUpon>
+      <LastGenOutput>QuanLyShopFood.cs</LastGenOutput>
+    </Content>
     <Content Include="Public\css\elegant-icons.css" />
     <Content Include="Public\css\font-awesome.min.css" />
     <Content Include="Public\css\jquery-ui.min.css" />
@@ -153,6 +227,14 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <EntityDeploy Include="Models\QuanLyShopFood.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyShopFood.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuanLyShopFood.edmx.diagram">
+      <DependentUpon>QuanLyShopFood.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -175,12 +257,11 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\LeftMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Public\images\" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +276,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
