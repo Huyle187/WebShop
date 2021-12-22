@@ -11,7 +11,7 @@ namespace WebShop.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -29,6 +29,7 @@ namespace WebShop.Models
         public string HinhAnh { get; set; }
         public Nullable<System.DateTime> NgayCapNhat { get; set; }
         public Nullable<int> SoLuongTon { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }

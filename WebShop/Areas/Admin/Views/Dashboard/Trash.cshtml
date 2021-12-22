@@ -1,0 +1,99 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<WebShop.Models.SanPham>
+
+@{
+    ViewBag.Title = "Recycle Bin";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6 text-danger text-uppercase">
+                <b><strong>THÙNG RÁC SẢN PHẨM</strong></b>
+            </div>
+            <div class="col-md-6 text-right">
+                <a class="btn btn-sm btn-info" href="@Url.Action("Index","Dashboard")">
+                    <i class="fas fa-backward"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        @Html.Partial("_XMessage")
+        <table class="table table-bordered table-striped text-center">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().MaHang)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().TenHang)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().NhaCungCap.TenNhaCungCap)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().LoaiHang.TenLoaiHang)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().GiaBan)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.MoTa)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HinhAnh)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.First().NgayCapNhat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().SoLuongTon)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaHang)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenHang)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NhaCungCap.TenNhaCungCap)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoaiHang.TenLoaiHang)
+                    </td>
+                    <td>
+                        @string.Format("{0:0,0}", item.GiaBan) VNĐ
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.MoTa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HinhAnh)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoLuongTon)
+                    </td>
+                    <td align="center">
+                        <a class="btn btn-sm btn-info" href="@Url.Action("Retrash", "Dashboard", new { id = item.MaHang })">
+                            <i class="fas fa-recycle"></i>
+                        </a>
+                        <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", "Dashboard", new { id = item.MaHang })">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

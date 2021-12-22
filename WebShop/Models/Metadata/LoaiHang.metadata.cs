@@ -12,7 +12,6 @@ namespace WebShop.Models
     {
         internal sealed class LoaiHangMetadata
         {
-            [Required(ErrorMessage = "Vui lòng nhập dữ liệu.")]
             [Display(Name = "Mã Loại Hàng")]
             public int MaLoaiHang { get; set; }
 

@@ -135,11 +135,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Catalog\UserDAO.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Library\MyMessage.cs" />
     <Compile Include="Models\ChiTietDonHang.cs">
       <DependentUpon>QuanLyShopFood.tt</DependentUpon>
     </Compile>
@@ -179,6 +181,7 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>QuanLyShopFood.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +238,11 @@
       <DependentUpon>QuanLyShopFood.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_XMessage.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Trash.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

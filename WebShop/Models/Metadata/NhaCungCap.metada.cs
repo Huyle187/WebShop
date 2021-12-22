@@ -12,7 +12,6 @@ namespace WebShop.Models
     {
         internal sealed class NhaCungCapMetadata
         {
-            [Required(ErrorMessage = "Vui lòng nhập dữ liệu.")]
             [Display(Name = "Mã Nhà Cung Cấp")]
             public int MaNhaCungCap { get; set; }
 
