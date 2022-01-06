@@ -17,7 +17,7 @@ namespace WebShop.Areas.Admin.Catalog
         public IPagedList<SanPham> getList(int? pageIndex, string page = "Index")
         {
             int pageNumber = (pageIndex ?? 1);
-            int pageSize = 2;
+            int pageSize = 5;
             if (page == "Index")
             {
                 var list = db.SanPhams.Where(p => p.TrangThai == true)
@@ -34,6 +34,14 @@ namespace WebShop.Areas.Admin.Catalog
                    .ToPagedList(pageNumber, pageSize);
                 return list;
             }
+        }
+
+        public Account getRow(string _userAccount)
+        {
+            var row = db.Accounts
+                .Where(x => (x.username == _userAccount || x.email == _userAccount))
+                .FirstOrDefault();
+            return row;
         }
 
         public string UploadFile(HttpPostedFileBase imageFile)
@@ -82,7 +90,7 @@ namespace WebShop.Areas.Admin.Catalog
         {
             var textBox = stringSearch.ToLower();
             int pageNumber = (pageIndex ?? 1);
-            int pageSize = 10;
+            int pageSize = 5;
 
             var list = db.SanPhams.Where(p => p.TenHang.Contains(stringSearch) ||
                                                 p.NhaCungCap.TenNhaCungCap.Contains(stringSearch) ||

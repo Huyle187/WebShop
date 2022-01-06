@@ -15,7 +15,6 @@ namespace WebShop.Models
             [Display(Name = "Mã Loại Hàng")]
             public int MaLoaiHang { get; set; }
 
-            [Required(ErrorMessage = "Vui lòng nhập dữ liệu.")]
             [Display(Name = "Tên Loại Hàng")]
             public string TenLoaiHang { get; set; }
         }

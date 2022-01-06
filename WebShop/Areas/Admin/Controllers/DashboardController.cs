@@ -11,7 +11,7 @@ using WebShop.Areas.Admin.Catalog;
 
 namespace WebShop.Areas.Admin.Controllers
 {
-    public class DashboardController : Controller
+    public class DashboardController : BaseController
     {
         // GET: Admin/Dashboard
         private QUANLYSHOPFOODEntities db = new QUANLYSHOPFOODEntities();
@@ -20,9 +20,6 @@ namespace WebShop.Areas.Admin.Controllers
 
         public ActionResult Index(int? page)
         {
-            //int pageNumber = (page ?? 1);
-            //int pageSize = 10;
-            //return View(db.SanPhams.ToList().OrderBy(x => x.MaHang).ToPagedList(pageNumber, pageSize));
             return View(_userDAO.getList(page, "Index"));
         }
 
